@@ -282,7 +282,7 @@ method="POST">
       menuBtn.setAttribute('aria-expanded', 'false');
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('contactForm').addEventListener('submit', (event) => {
+    ('submit', (event) => {
       event.preventDefault();
       const recipient = 'kingoas33@gmail.com'; // Replace this with your real business email.
       const subject = encodeURIComponent('New enquiry for CLICK');
