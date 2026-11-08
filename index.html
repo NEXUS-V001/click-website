@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c12">
+  <meta name="description" content="CLICK helps service businesses respond to leads faster and automate repetitive work with practical AI systems.">
+  <title>CLICK — Make every lead count</title>
+  <style>
+    :root {
+      --bg: #0b0c12;
+      --panel: #12141e;
+      --panel-2: #171a26;
+      --text: #f5f6fb;
+      --muted: #a6a9b8;
+      --line: rgba(255,255,255,.11);
+      --accent: #9b8cff;
+      --accent-2: #6e8cff;
+      --mint: #9ff2d0;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background:
+        radial-gradient(ellipse at 82% 2%, rgba(111,91,255,.17), transparent 35%),
+        radial-gradient(ellipse at 0% 35%, rgba(74,125,255,.09), transparent 30%),
+        var(--bg);
+      color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .nav { height: 82px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:10px; font-size:20px; font-weight:850; letter-spacing:-.07em; }
+    .brand-mark { width:31px; height:31px; border-radius:10px; display:grid; place-items:center; color:#0b0c12; background:linear-gradient(135deg,var(--mint),#8e9bff); font-size:18px; font-weight:950; }
+    .nav-links { display:flex; align-items:center; gap:30px; color:var(--muted); font-size:13px; }
+    .nav-links a:hover, .footer a:hover { color:var(--text); }
+    .btn { display:inline-flex; justify-content:center; align-items:center; gap:10px; padding:13px 19px; border-radius:999px; border:1px solid transparent; font-size:13px; font-weight:750; transition:transform .2s, filter .2s, border-color .2s; cursor:pointer; }
+    .btn:hover { transform:translateY(-2px); filter:brightness(1.08); }
+    .btn-primary { color:#0b0c12; background:linear-gradient(110deg,var(--mint),#b3a8ff); box-shadow:0 8px 30px rgba(139,126,255,.18); }
+    .btn-ghost { border-color:var(--line); color:var(--text); background:rgba(255,255,255,.025); }
+    .menu-btn { display:none; border:1px solid var(--line); color:var(--text); background:transparent; border-radius:10px; padding:8px 11px; }
+    .hero { padding:100px 0 88px; display:grid; grid-template-columns:1.08fr .92fr; gap:55px; align-items:center; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; border:1px solid rgba(159,242,208,.22); background:rgba(159,242,208,.055); color:var(--mint); padding:7px 11px; border-radius:99px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:800; }
+    .dot { width:7px; height:7px; border-radius:50%; background:var(--mint); box-shadow:0 0 13px var(--mint); }
+    h1 { font-size:clamp(46px,6.3vw,78px); line-height:.99; letter-spacing:-.075em; margin:24px 0 23px; max-width:680px; }
+    .gradient { background:linear-gradient(100deg,#a9f4d6 4%,#aaa0ff 60%,#8db5ff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero-copy { color:var(--muted); font-size:17px; max-width:540px; line-height:1.75; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:31px; }
+    .micro { color:#777d90; font-size:11px; margin-top:18px; }
+    .visual { position:relative; min-height:430px; display:grid; place-items:center; }
+    .orb { position:absolute; width:310px; height:310px; border-radius:50%; background:radial-gradient(circle at 35% 30%,rgba(177,164,255,.33),rgba(102,119,255,.09) 48%,transparent 70%); filter:blur(5px); }
+    .dashboard { position:relative; width:min(100%,440px); padding:19px; border:1px solid rgba(255,255,255,.14); border-radius:21px; background:linear-gradient(145deg,rgba(28,31,46,.96),rgba(16,18,28,.94)); box-shadow:0 28px 90px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.08); transform:rotate(-2deg); }
+    .dash-top { display:flex; justify-content:space-between; align-items:center; padding-bottom:17px; border-bottom:1px solid var(--line); font-size:12px; color:var(--muted); }
+    .live { color:var(--mint); font-size:10px; font-weight:800; }
+    .dash-title { font-size:19px; font-weight:750; letter-spacing:-.04em; margin:20px 0 4px; }
+    .dash-sub { font-size:11px; color:var(--muted); }
+    .metric-row { display:grid; grid-template-columns:1fr 1fr; gap:11px; margin:18px 0; }
+    .metric { padding:14px; border:1px solid var(--line); border-radius:13px; background:rgba(255,255,255,.025); }
+    .metric small { color:var(--muted); font-size:10px; }
+    .metric strong { display:block; font-size:25px; letter-spacing:-.05em; margin-top:5px; }
+    .metric em { font-style:normal; color:var(--mint); font-size:10px; margin-left:5px; }
+    .activity { display:flex; align-items:center; gap:11px; padding:12px 2px; border-top:1px solid var(--line); }
+    .activity-icon { width:31px; height:31px; display:grid; place-items:center; border-radius:10px; background:rgba(155,140,255,.15); color:#c5bbff; font-weight:800; }
+    .activity div:nth-child(2) { flex:1; }
+    .activity b { display:block; font-size:11px; }
+    .activity small { color:var(--muted); font-size:10px; }
+    .activity time { color:#85899a; font-size:10px; }
+    .float-tag { position:absolute; right:-7px; bottom:42px; background:#e9fff6; color:#101b19; border-radius:13px; padding:12px 15px; font-size:11px; font-weight:800; box-shadow:0 12px 40px rgba(0,0,0,.3); transform:rotate(3deg); }
+    section { padding:83px 0; }
+    .section-head { max-width:650px; margin-bottom:38px; }
+    .kicker { color:var(--accent); font-size:11px; text-transform:uppercase; letter-spacing:.16em; font-weight:850; }
+    h2 { font-size:clamp(31px,4vw,48px); line-height:1.08; letter-spacing:-.06em; margin:13px 0 14px; }
+    .section-head p, .muted { color:var(--muted); }
+    .problem-band { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,.018); }
+    .problem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; }
+    .problem { padding:8px 23px 8px 0; }
+    .problem .num { color:var(--accent); font-size:12px; font-weight:850; }
+    .problem h3 { font-size:18px; letter-spacing:-.035em; margin:10px 0 7px; }
+    .problem p { color:var(--muted); font-size:13px; margin:0; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+    .card { padding:25px; border:1px solid var(--line); border-radius:17px; background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015)); min-height:230px; }
+    .card-icon { width:42px; height:42px; display:grid; place-items:center; border-radius:13px; color:var(--mint); background:rgba(159,242,208,.09); font-size:18px; }
+    .card h3 { font-size:18px; letter-spacing:-.04em; margin:21px 0 8px; }
+    .card p { color:var(--muted); font-size:13px; margin:0; }
+    .how { display:grid; grid-template-columns:.8fr 1.2fr; gap:65px; align-items:start; }
+    .steps { border-top:1px solid var(--line); }
+    .step { display:grid; grid-template-columns:45px 1fr; gap:15px; padding:21px 0; border-bottom:1px solid var(--line); }
+    .step-no { color:var(--accent); font-size:12px; font-weight:850; padding-top:3px; }
+    .step h3 { margin:0 0 5px; font-size:16px; }
+    .step p { color:var(--muted); font-size:13px; margin:0; }
+    .cta-panel { border:1px solid rgba(167,155,255,.25); border-radius:23px; padding:54px; background:radial-gradient(ellipse at 100% 0%,rgba(134,116,255,.2),transparent 45%),linear-gradient(135deg,#171a29,#10121b); display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .cta-panel h2 { max-width:600px; margin-top:0; }
+    .cta-panel p { color:var(--muted); max-width:570px; margin-bottom:0; }
+    .faq { max-width:800px; }
+    details { border-bottom:1px solid var(--line); padding:19px 0; }
+    summary { cursor:pointer; font-size:15px; font-weight:700; list-style:none; display:flex; justify-content:space-between; gap:20px; }
+    summary::-webkit-details-marker { display:none; }
+    summary:after { content:"+"; color:var(--accent); font-size:20px; line-height:1; }
+    details[open] summary:after { content:"−"; }
+    details p { color:var(--muted); font-size:13px; max-width:690px; }
+    .contact-box { display:grid; grid-template-columns:1fr 1fr; gap:50px; border-top:1px solid var(--line); padding-top:48px; }
+    .contact-form { display:grid; gap:12px; }
+    input, textarea { width:100%; border:1px solid var(--line); background:rgba(255,255,255,.035); color:var(--text); padding:14px 15px; border-radius:11px; outline:none; }
+    input:focus, textarea:focus { border-color:var(--accent); }
+    textarea { min-height:115px; resize:vertical; }
+    .form-note { color:#85899a; font-size:11px; }
+    .footer { border-top:1px solid var(--line); padding:27px 0; color:#85899a; font-size:11px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    @media (max-width:850px) {
+      .hero { grid-template-columns:1fr; padding:75px 0 65px; gap:20px; }
+      .visual { min-height:380px; }
+      .how { grid-template-columns:1fr; gap:28px; }
+      .cta-panel { padding:38px; align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width:650px) {
+      .wrap { width:min(var(--max),calc(100% - 34px)); }
+      .nav { height:70px; }
+      .nav-links { display:none; position:absolute; top:70px; left:0; right:0; padding:20px 24px; background:#10121b; border-bottom:1px solid var(--line); flex-direction:column; align-items:flex-start; z-index:5; }
+      .nav-links.open { display:flex; }
+      .nav-links .btn { width:100%; }
+      .menu-btn { display:block; }
+      .hero { padding-top:62px; }
+      h1 { font-size:52px; }
+      .hero-copy { font-size:15px; }
+      .visual { min-height:340px; }
+      .dashboard { padding:15px; }
+      .float-tag { right:0; bottom:13px; }
+      section { padding:65px 0; }
+      .problem-grid, .cards, .contact-box { grid-template-columns:1fr; }
+      .problem { padding:0 0 17px; }
+      .card { min-height:0; }
+      .cta-panel { padding:28px 23px; }
+      .footer-inner { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="CLICK home"><span class="brand-mark">C</span>CLICK<span style="color:var(--accent)">.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#solutions">Solutions</a>
+        <a href="#process">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#contact">Get a free workflow audit <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Practical AI automation for service businesses</div>
+        <h1>Make every lead count. <span class="gradient">Without doing it all manually.</span></h1>
+        <p class="hero-copy">CLICK helps service businesses respond faster, follow up consistently, and take repetitive admin off their team's plate — with automation built around the way they already work.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get a free workflow audit <span>↗</span></a>
+          <a class="btn btn-ghost" href="#solutions">Explore what we automate</a>
+        </div>
+        <p class="micro">Built around your workflow. Designed to give your team time back.</p>
+      </div>
+      <div class="visual" aria-label="Illustration of an automation dashboard">
+        <div class="orb"></div>
+        <div class="dashboard">
+          <div class="dash-top"><span>CLICK / WORKFLOW OVERVIEW</span><span class="live">● SYSTEM ACTIVE</span></div>
+          <div class="dash-title">Your follow-up workflow</div>
+          <div class="dash-sub">A simple example of what automation can handle</div>
+          <div class="metric-row">
+            <div class="metric"><small>New enquiries</small><strong>24</strong><em>↗ captured</em></div>
+            <div class="metric"><small>Follow-ups</small><strong>18</strong><em>↗ queued</em></div>
+          </div>
+          <div class="activity"><div class="activity-icon">↗</div><div><b>New enquiry received</b><small>Lead details added to your system</small></div><time>Just now</time></div>
+          <div class="activity"><div class="activity-icon">✉</div><div><b>Instant reply prepared</b><small>Customer gets a prompt response</small></div><time>1 min</time></div>
+          <div class="activity"><div class="activity-icon">✓</div><div><b>Follow-up scheduled</b><small>No enquiry left sitting forgotten</small></div><time>2 min</time></div>
+        </div>
+        <div class="float-tag">Less repetitive work. More room to grow. ✦</div>
+      </div>
+    </div>
+
+    <section class="problem-band">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">The everyday bottleneck</div>
+          <h2>Good businesses shouldn't lose time to busywork.</h2>
+          <p>When the day gets busy, small tasks pile up — and important enquiries can slip through the cracks.</p>
+        </div>
+        <div class="problem-grid">
+          <div class="problem"><span class="num">01 / MISSED ENQUIRIES</span><h3>Leads wait too long</h3><p>Potential customers reach out, but your team can't always respond straight away.</p></div>
+          <div class="problem"><span class="num">02 / INCONSISTENT FOLLOW-UP</span><h3>People fall through the cracks</h3><p>Remembering who to contact and when becomes another job on an already full day.</p></div>
+          <div class="problem"><span class="num">03 / MANUAL ADMIN</span><h3>Hours disappear into repetition</h3><p>Copying details, sorting messages, and updating records takes focus away from customers.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="wrap">
+      <div class="section-head">
+        <div class="kicker">What CLICK can automate</div>
+        <h2>Simple systems. Real breathing room.</h2>
+        <p>We connect the tools you use and build workflows that take care of repetitive steps — while keeping people in control.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="card-icon">✦</div><h3>AI receptionist</h3><p>Help handle common enquiries, collect customer details, and route requests to the right person — even when your team is occupied.</p></article>
+        <article class="card"><div class="card-icon">↻</div><h3>Lead follow-up</h3><p>Send timely responses and reminders so new enquiries get acknowledged and follow-ups happen consistently.</p></article>
+        <article class="card"><div class="card-icon">▤</div><h3>Admin workflows</h3><p>Move information between apps, organize incoming requests, and reduce repetitive data entry and reporting.</p></article>
+      </div>
+    </section>
+
+    <section id="process" class="wrap">
+      <div class="how">
+        <div class="section-head">
+          <div class="kicker">A straightforward process</div>
+          <h2>Automation should fit your business — not the other way around.</h2>
+          <p>Start with one annoying, repetitive task. We'll map it, build a practical solution, and refine it with you.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-no">01</div><div><h3>We learn your workflow</h3><p>Tell us what happens when a lead comes in or where your team loses time.</p></div></div>
+          <div class="step"><div class="step-no">02</div><div><h3>We map the right automation</h3><p>We identify the repetitive steps, the tools involved, and where human approval should stay.</p></div></div>
+          <div class="step"><div class="step-no">03</div><div><h3>We build and improve</h3><p>We test the workflow with real scenarios, make adjustments, and help you put it to work.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="cta-panel">
+        <div><div class="kicker">Start with one workflow</div><h2>What keeps getting repeated in your business?</h2><p>Tell us what slows your team down. We'll help you spot an opportunity to simplify it with automation.</p></div>
+        <a class="btn btn-primary" href="#contact">Let's talk about it <span>↗</span></a>
+      </div>
+    </section>
+
+    <section id="faq" class="wrap">
+      <div class="section-head"><div class="kicker">A few common questions</div><h2>Before we get started.</h2></div>
+      <div class="faq">
+        <details><summary>Do I need to replace the tools I already use?</summary><p>Usually not. The goal is to connect and improve the tools that already support your workflow wherever practical.</p></details>
+        <details><summary>Will automation replace my team?</summary><p>CLICK focuses on repetitive steps and faster information handling. Your team stays in control of customer relationships and decisions that need a human touch.</p></details>
+        <details><summary>Can we start with just one task?</summary><p>Absolutely. Starting with one clear bottleneck makes it easier to test the value before expanding to other workflows.</p></details>
+        <details><summary>How much does it cost?</summary><p>It depends on the workflow, tools, and complexity. We start by understanding the task before recommending a build.</p></details>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap">
+      <div class="contact-box">
+        <div>
+          <div class="kicker">Get in touch</div>
+          <h2>Let's make your next workflow easier.</h2>
+          <p class="muted">Share the task that keeps eating up time. We'll take a look and discuss what a practical automation could look like.</p>
+          <p class="form-note">No pressure. Just a conversation about your workflow.</p>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input id="name" name="name" placeholder="Your name" autocomplete="name" required>
+          <input id="business" name="business" placeholder="Business name" autocomplete="organization">
+          <input id="email" name="email" type="email" placeholder="Work email" autocomplete="email" required>
+          <textarea id="message" name="message" placeholder="What task would you like to automate?" required></textarea>
+          <button class="btn btn-primary" type="submit">Send your enquiry <span>↗</span></button>
+          <p class="form-note" id="formNote">Setup note: replace hello@yourdomain.com in the code with your business email before publishing.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner"><a class="brand" href="#"><span class="brand-mark">C</span>CLICK<span style="color:var(--accent)">.</span></a><span>Practical automation. More time for the work that matters.</span><span>© <span id="year"></span> CLICK</span></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const recipient = 'hello@yourdomain.com'; // Replace this with your real business email.
+      const subject = encodeURIComponent('New enquiry for CLICK');
+      const body = encodeURIComponent(
+        'Name: ' + document.getElementById('name').value + '\n' +
+        'Business: ' + document.getElementById('business').value + '\n' +
+        'Email: ' + document.getElementById('email').value + '\n\n' +
+        'Workflow to automate:\n' + document.getElementById('message').value
+      );
+      window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
+      document.getElementById('formNote').textContent = 'Your email app should open with your enquiry ready to send.';
+    });
+  </script>
+</body>
+</html>
